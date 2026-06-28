@@ -1,0 +1,47 @@
+{
+  "customers": [
+    {
+      "id": 1,
+      "name": "AutoForge Inc",
+      "industry": "Automotive",
+      "products": "Electric vehicle components",
+      "regions": [
+        "EU",
+        "US"
+      ],
+      "priority": "High"
+    },
+    {
+      "id": 2,
+      "name": "MediBuild Solutions",
+      "industry": "Medical Devices",
+      "products": "Surgical equipment",
+      "regions": [
+        "US",
+        "EU"
+      ],
+      "priority": "High"
+    },
+    {
+      "id": 3,
+      "name": "AeroDynamics",
+      "industry": "Aerospace",
+      "products": "Aircraft parts",
+      "regions": [
+        "US"
+      ],
+      "priority": "Medium"
+    },
+    {
+      "id": 4,
+      "name": "ConstructSafe",
+      "industry": "Construction",
+      "products": "Heavy machinery",
+      "regions": [
+        "EU"
+      ],
+      "priority": "Medium"
+    }
+  ],
+  "events": []
+}
