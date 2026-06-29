@@ -2,46 +2,132 @@
   "customers": [
     {
       "id": 1,
+      "crm_id": "hubspot-company-1042",
       "name": "AutoForge Inc",
       "industry": "Automotive",
-      "products": "Electric vehicle components",
+      "products": "Electric vehicle battery modules and charging components",
       "regions": [
         "EU",
         "US"
       ],
-      "priority": "High"
+      "priority": "Strategic",
+      "account_owner": "Maya Chen",
+      "regulatory_topics": [
+        "EV",
+        "battery",
+        "charging",
+        "recycling",
+        "safety"
+      ],
+      "active_initiatives": [
+        "EU battery passport rollout",
+        "supplier compliance audit"
+      ]
     },
     {
       "id": 2,
+      "crm_id": "hubspot-company-2087",
       "name": "MediBuild Solutions",
       "industry": "Medical Devices",
-      "products": "Surgical equipment",
+      "products": "Surgical equipment and connected diagnostic devices",
       "regions": [
         "US",
         "EU"
       ],
-      "priority": "High"
+      "priority": "High",
+      "account_owner": "Jordan Patel",
+      "regulatory_topics": [
+        "FDA",
+        "medical",
+        "device",
+        "cybersecurity",
+        "quality"
+      ],
+      "active_initiatives": [
+        "FDA quality management update",
+        "EU MDR review"
+      ]
     },
     {
       "id": 3,
+      "crm_id": "hubspot-company-3319",
       "name": "AeroDynamics",
       "industry": "Aerospace",
-      "products": "Aircraft parts",
+      "products": "Aircraft parts, cabin systems, and composite materials",
       "regions": [
-        "US"
+        "US",
+        "UK"
       ],
-      "priority": "Medium"
+      "priority": "Medium",
+      "account_owner": "Sam Rivera",
+      "regulatory_topics": [
+        "FAA",
+        "aerospace",
+        "aircraft",
+        "materials",
+        "safety"
+      ],
+      "active_initiatives": [
+        "new aircraft interior certification"
+      ]
     },
     {
       "id": 4,
+      "crm_id": "hubspot-company-4520",
       "name": "ConstructSafe",
       "industry": "Construction",
-      "products": "Heavy machinery",
+      "products": "Heavy machinery, jobsite sensors, and safety equipment",
       "regions": [
-        "EU"
+        "EU",
+        "US"
       ],
-      "priority": "Medium"
+      "priority": "Medium",
+      "account_owner": "Priya Shah",
+      "regulatory_topics": [
+        "machinery",
+        "safety",
+        "construction",
+        "emissions"
+      ],
+      "active_initiatives": [
+        "EU machinery regulation review"
+      ]
     }
   ],
-  "events": []
+  "events": [
+    {
+      "title": "EU Battery Passport Enforcement Deadline Announced",
+      "description": "EU regulators confirmed a 2027 enforcement deadline for battery passport reporting, recycling disclosures, and supplier traceability requirements for EV battery manufacturers.",
+      "region": "EU",
+      "tags": [
+        "regulation",
+        "deadline",
+        "enforcement",
+        "EV",
+        "battery"
+      ]
+    },
+    {
+      "title": "FDA Issues Draft Guidance on Medical Device Cybersecurity",
+      "description": "New draft guidance outlines mandatory security documentation and quality system expectations for connected diagnostic and surgical devices.",
+      "region": "US",
+      "tags": [
+        "regulation",
+        "medical",
+        "cybersecurity",
+        "draft"
+      ]
+    },
+    {
+      "title": "FAA Safety Alert Covers Cabin Composite Materials",
+      "description": "A safety alert asks aerospace suppliers to review composite materials used in aircraft cabin systems after a recent incident investigation.",
+      "region": "US",
+      "tags": [
+        "incident",
+        "aerospace",
+        "safety",
+        "standard"
+      ]
+    }
+  ]
 }
