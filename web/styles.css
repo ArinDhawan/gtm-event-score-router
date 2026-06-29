@@ -107,7 +107,6 @@ select {
 }
 
 .brand-subtitle,
-.profile-email,
 .muted,
 .panel-header p,
 .slider-value,
@@ -115,8 +114,7 @@ select {
   color: var(--muted);
 }
 
-.brand-subtitle,
-.profile-email {
+.brand-subtitle {
   font-size: 13px;
 }
 
@@ -297,7 +295,9 @@ h3 {
 .signal-card,
 .route-card,
 .campaign-card,
-.account-card {
+.account-card,
+.source-card,
+.profile-card {
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.5)),
     var(--surface);
@@ -347,6 +347,10 @@ h3 {
   gap: 20px;
 }
 
+.span-4 {
+  grid-column: span 4;
+}
+
 .span-5 {
   grid-column: span 5;
 }
@@ -357,6 +361,10 @@ h3 {
 
 .span-7 {
   grid-column: span 7;
+}
+
+.span-8 {
+  grid-column: span 8;
 }
 
 .panel {
@@ -376,14 +384,16 @@ h3 {
 .campaign-list,
 .impact-list,
 .rules-list,
-.account-grid {
+.account-grid,
+.profile-list {
   display: grid;
   gap: 12px;
 }
 
 .route-card,
 .campaign-card,
-.account-card {
+.account-card,
+.source-card {
   padding: 16px;
   position: relative;
   overflow: hidden;
@@ -391,7 +401,8 @@ h3 {
 
 .route-card::before,
 .campaign-card::before,
-.account-card::before {
+.account-card::before,
+.source-card::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -413,6 +424,13 @@ h3 {
 .score {
   font-size: 32px;
   font-weight: 300;
+}
+
+.score small {
+  color: var(--muted-2);
+  font-size: 13px;
+  font-weight: 700;
+  margin-left: 3px;
 }
 
 .pill {
@@ -470,6 +488,45 @@ h3 {
   font-size: 13px;
 }
 
+.component-list {
+  display: grid;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.component-row {
+  display: grid;
+  grid-template-columns: 130px minmax(80px, 1fr) 42px;
+  align-items: center;
+  gap: 10px;
+  color: var(--muted);
+  font-size: 12px;
+  text-transform: capitalize;
+}
+
+.component-row strong {
+  color: var(--text);
+  text-align: right;
+}
+
+.component-track {
+  height: 7px;
+  border-radius: 999px;
+  background: #e1e8e4;
+  overflow: hidden;
+}
+
+.component-track i {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #111318, var(--green));
+}
+
+.mini-bars .component-list {
+  grid-template-columns: repeat(2, minmax(180px, 1fr));
+}
+
 .filters {
   display: grid;
   grid-template-columns: minmax(220px, 1fr) 180px 220px;
@@ -486,6 +543,12 @@ h3 {
   gap: 16px;
 }
 
+.source-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(260px, 1fr));
+  gap: 16px;
+}
+
 .signal-card {
   padding: 18px;
   min-height: 210px;
@@ -498,13 +561,27 @@ h3 {
 .signal-card:hover,
 .route-card:hover,
 .campaign-card:hover,
-.account-card:hover {
+.account-card:hover,
+.source-card:hover,
+.profile-card:hover {
   transform: translateY(-2px);
   border-color: rgba(141, 124, 255, 0.42);
 }
 
 .signal-card h3 {
   line-height: 1.18;
+}
+
+.source-card {
+  display: grid;
+  gap: 14px;
+}
+
+.source-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
 }
 
 .tag-row {
@@ -521,6 +598,61 @@ h3 {
   padding: 4px 7px;
   font-size: 12px;
   font-weight: 700;
+}
+
+.tag.strong {
+  background: rgba(215, 255, 0, 0.38);
+  border-color: rgba(56, 83, 0, 0.2);
+}
+
+.tag.weak {
+  background: rgba(17, 19, 24, 0.04);
+  color: var(--muted);
+}
+
+.tag-block {
+  display: grid;
+  gap: 8px;
+}
+
+.tag-block strong,
+.detail-section h3 {
+  color: var(--muted-2);
+  font-size: 12px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.profile-card {
+  border: 1px solid var(--line);
+  text-align: left;
+  padding: 14px;
+  display: grid;
+  gap: 6px;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.profile-card span {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.profile-card.selected {
+  border-color: #111318;
+  box-shadow: inset 4px 0 0 var(--green);
+}
+
+.profile-detail {
+  display: grid;
+  gap: 18px;
+}
+
+.detail-section {
+  display: grid;
+  gap: 8px;
+  border-top: 1px solid var(--line);
+  padding-top: 14px;
 }
 
 .evidence-list {
@@ -545,6 +677,52 @@ h3 {
   border-radius: 8px;
   overflow-x: auto;
   font-size: 12px;
+}
+
+.activation-timeline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0;
+}
+
+.activation-timeline span {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 750;
+  padding: 6px 9px;
+  position: relative;
+}
+
+.activation-timeline span.done {
+  background: rgba(215, 255, 0, 0.42);
+  border-color: rgba(56, 83, 0, 0.2);
+  color: var(--green-strong);
+}
+
+.activation-button {
+  margin-top: 12px;
+}
+
+.hubspot-button {
+  margin-top: 14px;
+}
+
+.hubspot-status {
+  min-height: 22px;
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.hubspot-status.success {
+  color: #385300;
+}
+
+.hubspot-status.error {
+  color: var(--red);
 }
 
 .impact-row {
@@ -597,13 +775,24 @@ h3 {
 
   .summary-grid,
   .signal-grid,
+  .source-grid,
   .filters {
     grid-template-columns: 1fr;
   }
 
+  .mini-bars .component-list {
+    grid-template-columns: 1fr;
+  }
+
+  .component-row {
+    grid-template-columns: 110px minmax(80px, 1fr) 36px;
+  }
+
+  .span-4,
   .span-5,
   .span-6,
-  .span-7 {
+  .span-7,
+  .span-8 {
     grid-column: span 12;
   }
 

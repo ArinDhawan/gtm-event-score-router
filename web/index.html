@@ -21,8 +21,9 @@
           <button class="nav-item active" data-view="dashboard">Dashboard</button>
           <button class="nav-item" data-view="feed">Signal Feed</button>
           <button class="nav-item" data-view="queue">Routing Queue</button>
+          <button class="nav-item" data-view="profiles">Customer Profiles</button>
+          <button class="nav-item" data-view="sources">Signal Sources</button>
           <button class="nav-item" data-view="campaigns">Campaigns</button>
-          <button class="nav-item" data-view="rules">Rules</button>
         </nav>
 
         <div class="sidebar-section">
@@ -41,7 +42,6 @@
           <div class="avatar">GT</div>
           <div>
             <div class="profile-name">Growth Team</div>
-            <div class="profile-email">routing@workspace.ai</div>
           </div>
         </div>
       </aside>
@@ -51,10 +51,6 @@
           <div>
             <p class="eyebrow">Regulatory signal activation</p>
             <h1 id="pageTitle">Dashboard</h1>
-          </div>
-          <div class="top-actions">
-            <button class="ghost-button" id="refreshButton">Refresh feed</button>
-            <button class="primary-button" id="exportButton">Export payload</button>
           </div>
         </header>
 
@@ -75,11 +71,32 @@
             <section class="panel span-5">
               <div class="panel-header">
                 <div>
-                  <h2>Campaign Preview</h2>
-                  <p>Generated when an account crosses the threshold.</p>
+                  <h2>Top Trigger</h2>
+                  <p>Generated only when cumulative explainable score crosses the threshold.</p>
                 </div>
               </div>
               <div id="campaignPreview"></div>
+            </section>
+          </div>
+
+          <div class="content-grid">
+            <section class="panel span-6">
+              <div class="panel-header">
+                <div>
+                  <h2>Evidence Stack</h2>
+                  <p>Relevant signals supporting this campaign.</p>
+                </div>
+              </div>
+              <div id="topEvidence"></div>
+            </section>
+            <section class="panel span-6">
+              <div class="panel-header">
+                <div>
+                  <h2>Score Breakdown</h2>
+                  <p>How the top route was calculated from profile and source fit.</p>
+                </div>
+              </div>
+              <div id="topBreakdown"></div>
             </section>
           </div>
 
@@ -115,35 +132,27 @@
           <div id="queueDetail" class="account-grid"></div>
         </section>
 
-        <section class="view" id="campaignsView">
-          <div id="campaignList" class="campaign-list"></div>
+        <section class="view" id="profilesView">
+          <div class="content-grid">
+            <section class="panel span-4">
+              <div class="panel-header">
+                <div>
+                  <h2>Profiles</h2>
+                  <p>Customer context used by the scorer.</p>
+                </div>
+              </div>
+              <div id="profileList" class="profile-list"></div>
+            </section>
+            <section class="span-8" id="profileDetail"></section>
+          </div>
         </section>
 
-        <section class="view" id="rulesView">
-          <div class="content-grid">
-            <section class="panel span-6">
-              <div class="panel-header">
-                <div>
-                  <h2>Routing Policy</h2>
-                  <p>Deterministic rules used by the demo engine.</p>
-                </div>
-              </div>
-              <div class="rules-list" id="rulesList"></div>
-            </section>
-            <section class="panel span-6">
-              <div class="panel-header">
-                <div>
-                  <h2>Suppression Logic</h2>
-                  <p>Prevents repeated enrollment for the same account and topic.</p>
-                </div>
-              </div>
-              <div class="suppression-card">
-                <div class="large-number">30</div>
-                <p>day suppression window after campaign creation.</p>
-                <p class="muted">A second threshold crossing for the same account and campaign family is held for review instead of automatically enrolled.</p>
-              </div>
-            </section>
-          </div>
+        <section class="view" id="sourcesView">
+          <div id="sourceGrid" class="source-grid"></div>
+        </section>
+
+        <section class="view" id="campaignsView">
+          <div id="campaignList" class="campaign-list"></div>
         </section>
       </main>
     </div>
