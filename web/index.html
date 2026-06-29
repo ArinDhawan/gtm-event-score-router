@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Regulatory Signal Router</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-mark">R</div>
+          <div>
+            <div class="brand-name">Signal Router</div>
+            <div class="brand-subtitle">GTM operations</div>
+          </div>
+        </div>
+
+        <nav class="nav">
+          <button class="nav-item active" data-view="dashboard">Dashboard</button>
+          <button class="nav-item" data-view="feed">Signal Feed</button>
+          <button class="nav-item" data-view="queue">Routing Queue</button>
+          <button class="nav-item" data-view="campaigns">Campaigns</button>
+          <button class="nav-item" data-view="rules">Rules</button>
+        </nav>
+
+        <div class="sidebar-section">
+          <div class="section-label">Feed Scenario</div>
+          <select id="scenarioSelect"></select>
+        </div>
+
+        <div class="sidebar-section">
+          <div class="section-label">Routing Rules</div>
+          <label class="field-label" for="triggerThreshold">Trigger threshold</label>
+          <input id="triggerThreshold" type="range" min="200" max="360" step="5" value="280">
+          <div class="slider-value"><span id="thresholdValue">280</span> points</div>
+        </div>
+
+        <div class="profile">
+          <div class="avatar">GT</div>
+          <div>
+            <div class="profile-name">Growth Team</div>
+            <div class="profile-email">routing@workspace.ai</div>
+          </div>
+        </div>
+      </aside>
+
+      <main class="main">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Regulatory signal activation</p>
+            <h1 id="pageTitle">Dashboard</h1>
+          </div>
+          <div class="top-actions">
+            <button class="ghost-button" id="refreshButton">Refresh feed</button>
+            <button class="primary-button" id="exportButton">Export payload</button>
+          </div>
+        </header>
+
+        <section class="summary-grid" id="summaryGrid"></section>
+
+        <section class="view active" id="dashboardView">
+          <div class="content-grid">
+            <section class="panel span-7">
+              <div class="panel-header">
+                <div>
+                  <h2>Customer Routing Queue</h2>
+                  <p>Accounts ranked by cumulative signal score.</p>
+                </div>
+              </div>
+              <div id="routingQueue" class="routing-list"></div>
+            </section>
+
+            <section class="panel span-5">
+              <div class="panel-header">
+                <div>
+                  <h2>Campaign Preview</h2>
+                  <p>Generated when an account crosses the threshold.</p>
+                </div>
+              </div>
+              <div id="campaignPreview"></div>
+            </section>
+          </div>
+
+          <section class="panel">
+            <div class="panel-header">
+              <div>
+                <h2>Impact Report</h2>
+                <p>How much routing work the engine handled for this feed.</p>
+              </div>
+            </div>
+            <div id="impactReport" class="impact-list"></div>
+          </section>
+        </section>
+
+        <section class="view" id="feedView">
+          <div class="filters">
+            <input id="searchInput" type="search" placeholder="Search signals">
+            <select id="jurisdictionFilter">
+              <option value="All">Jurisdiction: All</option>
+              <option value="EU">EU</option>
+              <option value="US">US</option>
+            </select>
+            <select id="classificationFilter">
+              <option value="All">Classification: All</option>
+              <option value="Recommended">Recommended</option>
+              <option value="Monitor">Monitor</option>
+            </select>
+          </div>
+          <div id="signalFeed" class="signal-grid"></div>
+        </section>
+
+        <section class="view" id="queueView">
+          <div id="queueDetail" class="account-grid"></div>
+        </section>
+
+        <section class="view" id="campaignsView">
+          <div id="campaignList" class="campaign-list"></div>
+        </section>
+
+        <section class="view" id="rulesView">
+          <div class="content-grid">
+            <section class="panel span-6">
+              <div class="panel-header">
+                <div>
+                  <h2>Routing Policy</h2>
+                  <p>Deterministic rules used by the demo engine.</p>
+                </div>
+              </div>
+              <div class="rules-list" id="rulesList"></div>
+            </section>
+            <section class="panel span-6">
+              <div class="panel-header">
+                <div>
+                  <h2>Suppression Logic</h2>
+                  <p>Prevents repeated enrollment for the same account and topic.</p>
+                </div>
+              </div>
+              <div class="suppression-card">
+                <div class="large-number">30</div>
+                <p>day suppression window after campaign creation.</p>
+                <p class="muted">A second threshold crossing for the same account and campaign family is held for review instead of automatically enrolled.</p>
+              </div>
+            </section>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
